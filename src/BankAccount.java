@@ -1,5 +1,3 @@
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.Random;
 
 public class BankAccount {
