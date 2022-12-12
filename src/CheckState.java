@@ -11,6 +11,7 @@ public class CheckState implements ActionListener {
     JLabel balanceLabel;
     JLabel balance;
     JButton backBtn;
+
     public CheckState() {
         backBtn = new JButton("Back");
         backBtn.setBounds(20, 20, 200, 35);
@@ -49,7 +50,7 @@ public class CheckState implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == backBtn) {
+        if (e.getSource() == backBtn) {
             //TODO fix username
             AfterLogin welcomePage = new AfterLogin(username.getText());
             frame.dispose();

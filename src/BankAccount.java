@@ -16,7 +16,7 @@ public class BankAccount {
     }
 
     public static String getId() {
-        return String.format("%d", id);
+        return String.format("%06d", id);
     }
 
     public static String getBalanceString() {
@@ -24,7 +24,7 @@ public class BankAccount {
     }
 
     public static void updateBal(int amount, String op) {
-        if(op.equals("+"))
+        if (op.equals("+"))
             BankAccount.balance += amount;
         else
             BankAccount.balance -= amount;

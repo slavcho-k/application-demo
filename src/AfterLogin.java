@@ -43,7 +43,7 @@ public class AfterLogin implements ActionListener {
         sendMoneyBtn.setFocusable(false);
 
         historyBtn = new JButton("History");
-        historyBtn.setBounds(20, 350, 200,25);
+        historyBtn.setBounds(20, 350, 200, 25);
         historyBtn.addActionListener(this);
         historyBtn.setFocusable(false);
 
@@ -80,7 +80,7 @@ public class AfterLogin implements ActionListener {
             SendMoney sendMoney = new SendMoney();
             frame.dispose();
         }
-        if (e.getSource() == historyBtn){
+        if (e.getSource() == historyBtn) {
             TransactionHistory transactionHistory = new TransactionHistory();
             frame.dispose();
         }

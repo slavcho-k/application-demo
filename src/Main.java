@@ -7,5 +7,6 @@ public class Main {
         BankAccount bankAccount = new BankAccount("random user");
         //ova podole e za testiranje bez login
         //AfterLogin welcomePage = new AfterLogin("username");
+        //AddressesToSendTo at = new AddressesToSendTo();
     }
 }
