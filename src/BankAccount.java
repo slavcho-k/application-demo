@@ -19,15 +19,14 @@ public class BankAccount {
         return String.format("%d", id);
     }
 
-    public double getBalance() {
-        return balance;
-    }
-
     public static String getBalanceString() {
         return String.format("%.2f$", balance);
     }
 
-    public static void updateBal(int amount) {
-        BankAccount.balance += amount;
+    public static void updateBal(int amount, String op) {
+        if(op.equals("+"))
+            BankAccount.balance += amount;
+        else
+            BankAccount.balance -= amount;
     }
 }

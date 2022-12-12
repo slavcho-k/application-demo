@@ -11,6 +11,7 @@ public class AfterLogin implements ActionListener {
     JButton depositBtn;
     JButton withdrawBtn;
     JButton sendMoneyBtn;
+    JButton historyBtn;
 
     public AfterLogin(String username) {
         bankAppLabel = new JLabel("Banking Application");
@@ -41,6 +42,12 @@ public class AfterLogin implements ActionListener {
         sendMoneyBtn.addActionListener(this);
         sendMoneyBtn.setFocusable(false);
 
+        historyBtn = new JButton("History");
+        historyBtn.setBounds(20, 350, 200,25);
+        historyBtn.addActionListener(this);
+        historyBtn.setFocusable(false);
+
+
         frame = new JFrame();
         frame.add(bankAppLabel);
         frame.add(welcomeLabel);
@@ -48,6 +55,7 @@ public class AfterLogin implements ActionListener {
         frame.add(depositBtn);
         frame.add(withdrawBtn);
         frame.add(sendMoneyBtn);
+        frame.add(historyBtn);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1024, 768);
         frame.setLayout(null);
@@ -67,8 +75,13 @@ public class AfterLogin implements ActionListener {
         if (e.getSource() == withdrawBtn) {
             WithdrawMoney withdrawMoney = new WithdrawMoney();
             frame.dispose();
-        } else {
+        }
+        if (e.getSource() == sendMoneyBtn) {
             SendMoney sendMoney = new SendMoney();
+            frame.dispose();
+        }
+        if (e.getSource() == historyBtn){
+            TransactionHistory transactionHistory = new TransactionHistory();
             frame.dispose();
         }
     }

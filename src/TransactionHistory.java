@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SendMoney implements ActionListener {
+public class TransactionHistory implements ActionListener {
     JFrame frame;
     JButton backBtn;
 
-    public SendMoney() {
+    public TransactionHistory() {
         backBtn = new JButton("Back");
         backBtn.setBounds(20, 20, 200, 35);
         backBtn.addActionListener(this);

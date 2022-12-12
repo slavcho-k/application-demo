@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class DepositMoney implements ActionListener {
     JFrame frame;
@@ -29,7 +31,7 @@ public class DepositMoney implements ActionListener {
 
         dateLabel = new JLabel("Deposit date: ");
         dateLabel.setBounds(20, 130, 200, 35);
-        date = new JLabel(LocalDate.now().toString());
+        date = new JLabel(LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
         date.setBounds(105, 130, 200, 35);
 
         amountLabel = new JLabel("Amount: ");
@@ -69,7 +71,7 @@ public class DepositMoney implements ActionListener {
             String am = amount.getText();
             am = am.replace(",", "");
             amount.setText("0");
-            BankAccount.updateBal(Integer.parseInt(am));
+            BankAccount.updateBal(Integer.parseInt(am), "+");
         }
     }
 
