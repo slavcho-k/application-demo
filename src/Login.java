@@ -46,6 +46,7 @@ public class Login implements ActionListener {
         resetBtn.addActionListener(this);
 
         frame = new JFrame();
+        //frame.setLocationRelativeTo(null);
         frame.add(userIdLabel);
         frame.add(userPassLabel);
         frame.add(message);
