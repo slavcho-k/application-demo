@@ -22,7 +22,7 @@ public class AfterLogin implements ActionListener {
         welcomeLabel.setBounds(20, 50, 200, 35);
         welcomeLabel.setFont(new Font(null, Font.PLAIN, 22));
 
-        checkStateBtn = new JButton("Check state");
+        checkStateBtn = new JButton("Check balance");
         checkStateBtn.setBounds(20, 110, 200, 25);
         checkStateBtn.addActionListener(this);
         checkStateBtn.setFocusable(false);
@@ -65,7 +65,7 @@ public class AfterLogin implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == checkStateBtn) {
-            CheckState checkState = new CheckState();
+            CheckBalance checkBalance = new CheckBalance();
             frame.dispose();
         }
         if (e.getSource() == depositBtn) {

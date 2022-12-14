@@ -1,14 +1,15 @@
 import javax.swing.*;
 import javax.swing.text.NumberFormatter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DepositMoney implements ActionListener {
     JFrame frame;
+    JLabel title;
     JButton backBtn;
     JButton confirmBtn;
     JLabel dateLabel;
@@ -19,33 +20,39 @@ public class DepositMoney implements ActionListener {
     JFormattedTextField amount;
 
     public DepositMoney() {
+        title = new JLabel("Deposit money");
+        title.setBounds(20, 20, 200, 35);
+        title.setFont(new Font(null, Font.BOLD, 25));
+
         backBtn = new JButton("Back");
-        backBtn.setBounds(20, 20, 200, 35);
+        backBtn.setBounds(20, 80, 200, 35);
+        //backBtn.setBounds(20, 20, 200, 35);
         backBtn.addActionListener(this);
         backBtn.setFocusable(false);
 
         idLabel = new JLabel("Identification: ");
-        idLabel.setBounds(20, 70, 200, 35);
+        idLabel.setBounds(20, 130, 200, 35);
         id = new JLabel(BankAccount.getId());
-        id.setBounds(105, 70, 200, 35);
+        id.setBounds(105, 130, 200, 35);
 
         dateLabel = new JLabel("Deposit date: ");
-        dateLabel.setBounds(20, 130, 200, 35);
+        dateLabel.setBounds(20, 190, 200, 35);
         date = new JLabel(LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
-        date.setBounds(105, 130, 200, 35);
+        date.setBounds(105, 190, 200, 35);
 
         amountLabel = new JLabel("Amount: ");
-        amountLabel.setBounds(20, 190, 200, 35);
+        amountLabel.setBounds(20, 250, 200, 35);
         amount = new JFormattedTextField(numberFormatter());
         amount.setText("0");
-        amount.setBounds(75, 198, 100, 20);
+        amount.setBounds(75, 258, 100, 20);
 
-        confirmBtn = new JButton("Confirm");
-        confirmBtn.setBounds(20, 250, 200, 35);
+        confirmBtn = new JButton("Deposit");
+        confirmBtn.setBounds(20, 310, 200, 35);
         confirmBtn.addActionListener(this);
         confirmBtn.setFocusable(false);
 
         frame = new JFrame();
+        frame.add(title);
         frame.add(backBtn);
         frame.add(idLabel);
         frame.add(id);
@@ -68,10 +75,14 @@ public class DepositMoney implements ActionListener {
             frame.dispose();
         }
         if (e.getSource() == confirmBtn) {
-            String am = amount.getText();
-            am = am.replace(",", "");
-            amount.setText("0");
-            BankAccount.updateBal(Integer.parseInt(am), "+");
+            if (amount.getText().equals("0"))
+                JOptionPane.showMessageDialog(frame, "Cannot deposit $0");
+            else {
+                String am = amount.getText();
+                am = am.replace(",", "");
+                amount.setText("0");
+                BankAccount.updateBal(Integer.parseInt(am), "+");
+            }
         }
     }
 

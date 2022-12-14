@@ -23,6 +23,10 @@ public class BankAccount {
         return String.format("%.2f$", balance);
     }
 
+    public static double getBalance() {
+        return balance;
+    }
+
     public static void updateBal(int amount, String op) {
         if (op.equals("+"))
             BankAccount.balance += amount;
